@@ -1,12 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react' 
+import ReactDOM from 'react-dom'
+import App from './App'
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+/* 
+ReactDom - библиотека, ответственная за то, чтобы вносить данные в html
+render - метод ReactDOM, с помощью которого происходит инъекция какого-либо компонента реакта в html
+в данном случае <App/>
+render метод принимает два параметра:
+1 - указываем какой компонент мы хотим занести в html - это <App/>
+2 - указываем корневой блок, куда будет вставлен этот компонент - 
+в данном случае это тег div c id='root' - единственный тег, который указан в <body> в файле index.html
+*/
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<App/>, document.getElementById('root'))
