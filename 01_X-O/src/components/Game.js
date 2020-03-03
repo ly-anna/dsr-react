@@ -51,11 +51,17 @@ class Game extends Component {
       for (let i = 0; i < squares.length; i++) {
         console.log('squaresHint[i]', squares[i])
       
-        if (calculateWinner(squares) || squares[i]) { // проверяем есть ли победитель или все клетки заполнены.
-            return;
-        }
-        if (squares[i] === null){
+        // if (calculateWinner(squares) || squares[i]) { // проверяем есть ли победитель или все клетки заполнены.
+        //   return;
+        // }
+
+        if (squares[i] === null) {
         squares[i] = this.state.xIsNext ? 'X' : 'O';
+        break}
+        else {continue}
+        }
+
+        
         this.setState({
             history: history.concat([{   // метод concat() не изменяет оргинальный массив. создает новый и добавляет указанные элементы
               squares: squares,
@@ -63,9 +69,9 @@ class Game extends Component {
             stepNumber: history.length,
             xIsNext: !this.state.xIsNext,
           }) 
-        }}
         }
-
+        
+        /* не работает проверка на победителя при использовании подсказок и если только подсказками играть, то бесконечное количество кнопок ходов получается*/
     
 
 
