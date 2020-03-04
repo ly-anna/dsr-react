@@ -54,10 +54,12 @@ class Game extends Component {
         if (calculateWinner(squares) || squares[i]) { // проверяем есть ли победитель или все клетки заполнены.
           return;
         }
-        
+        console.log('squares', squares)
+        console.log('squares[i]', squares[i])
         if (squares[i] === null) {
         squares[i] = this.state.xIsNext ? 'X' : 'O';
-        break}
+        break
+      }
         else {continue}
         
         }
