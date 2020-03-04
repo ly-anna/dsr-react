@@ -23,13 +23,12 @@ class Game extends Component {
         };
     }
 
-    /* создаем функцию-обработчик события нажатия на элемент*/
+    /* обработчик события нажатия на элемент*/
 
     handleClick(i) {
         const history = this.state.history.slice(0, this.state.stepNumber + 1); // константа history это все состояния поля после каждого хода, массив объектов
         const current = history[history.length - 1]; // current - это последний элемент игры - состояние массива squares после последнего хода, последний объект, который был добавлен в массив history
         const squares = current.squares.slice(); // с помощью slice() копируем массив squares, чтобы соблюсти иммутабельность
-        console.log('squares', squares)
         if (calculateWinner(squares) || squares[i]) { // проверяем есть ли победитель или все клетки заполнены.
             return;
         }
@@ -100,14 +99,14 @@ class Game extends Component {
               `Start`;
             return (
               <li key={move}>
-                <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                <button className='move waves-effect waves-light btn-small' onClick={() => this.jumpTo(move)}>{desc}</button>
               </li>
             );
           });
           
           let status;
           if (winner) {
-            status = `Player ${winner} is WINNER!! 
+            status = `Player ${winner} is a WINNER!! 
                             Congratulations!`;
           } else {
             status = `Player ${this.state.xIsNext ? 'X' : 'O'} !   Your turn!`;
@@ -124,7 +123,7 @@ class Game extends Component {
                 />
               </div>
               <div className="game-info">
-                <div>{ status }</div>
+                <div className='status'>{ status }</div>
                 <HintButton
                   squares={current.squares}
                   onClick={() => this.handleHintClick() }

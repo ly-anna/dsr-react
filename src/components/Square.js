@@ -5,7 +5,7 @@ import React from 'react'
 const Square = ({value, onClick}) => {
     return (
       <button 
-      className='square'
+      className='square waves-effect waves-teal btn-flat'
       onClick={onClick}
       >
         {value}

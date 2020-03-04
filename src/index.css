@@ -21,15 +21,17 @@ body {
     background: #fff;
     border: 1px solid #999;
     float: left;
-    font-size: 24px;
+    font-family: 'Nanum Brush Script', cursive;
+    font-size: 100px;
     font-weight: bold;
     line-height: 34px;
-    height: 34px;
+    height: 100px;
+    width: 100px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 34px;
+    
   }
   
   .square:focus {
@@ -43,6 +45,7 @@ body {
   .game {
     display: flex;
     flex-direction: row;
+    margin-left: 50px;
     
   }
 
@@ -52,33 +55,45 @@ body {
   
   .board {
     flex-wrap: wrap;
-    width: 130px;
+    width: 300px;
   }
-/* 
+
   .hint {
-    
-      -webkit-appearance: button;
-      -webkit-writing-mode: horizontal-tb !important;
-      text-rendering: auto;
-      color: buttontext;
-      letter-spacing: normal;
-      word-spacing: normal;
-      text-transform: none;
-      text-indent: 0px;
-      text-shadow: none;
-      display: inline-block;
-      text-align: center;
-      align-items: flex-start;
-      cursor: default;
-      background-color: buttonface;
-      box-sizing: border-box;
-      margin: 0em;
-      font: 400 13.3333px Arial;
-      padding: 1px 6px;
-      border-width: 2px;
-      border-style: outset;
-      border-color: buttonface;
-      border-image: initial;
-  
-  
-  } */
+    /* background-color:#ab47bc  */
+    /* -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: buttonface;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+   */
+  }
+
+
+
+.move {
+  margin: 2px;
+  /* background-color: #ce93d8; */
+}
+
+.status {
+  margin: 20px;
+  font-family: 'Nanum Brush Script', cursive;
+  font-size: 50px;
+}

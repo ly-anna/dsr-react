@@ -6,7 +6,7 @@ import React from 'react'
 const HintButton = ({value, onClick}) => {
   return (
     <button 
-    className='hint'
+    className='hint waves-effect waves-light btn-small'
     onClick={onClick}
     >
       Get a hint!
