@@ -42,14 +42,16 @@ class Game extends Component {
             xIsNext: !this.state.xIsNext,
           }); 
         }
+    
+    /* обработчик события нажатия на кнопку подсказки Get a hint*/
 
     handleHintClick() {
       const history = this.state.history.slice(0, this.state.stepNumber + 1); // константа history это все состояния поля после каждого хода, массив объектов
       const current = history[history.length - 1]; // current - это последний элемент игры - состояние массива squares после последнего хода, последний объект, который был добавлен в массив history
       const squares = current.squares.slice(); // с помощью slice() копируем массив squares, чтобы соблюсти иммутабельность
       
-      for (let ind = 0; ind < squares.length; ind++) {
-        let i = Math.floor(Math.random() * squares.length);
+      for (let ind = 0; ind < squares.length; ind++) { // задаем индекс, чтобы запустить цикл
+        let i = Math.floor(Math.random() * squares.length); // берем произвольный индекс, чтобы в произвольном порядке вставлять символ в клеточку
         if (calculateWinner(squares) || squares[i]) { // проверяем есть ли победитель или все клетки заполнены.
           return;
         }
@@ -71,7 +73,7 @@ class Game extends Component {
           }) 
         }
         
-        /* не работает проверка на победителя при использовании подсказок и если только подсказками играть, то бесконечное количество кнопок ходов получается*/
+        
     
 
 
