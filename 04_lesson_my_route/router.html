@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Router</title>
+</head>
+
+<body>
+
+  <h3>Router:</h3>
+  <div id='view'></div>
+  <button route='/'>/</button>
+  <button route='/main'>Main</button>
+  <button route='/profile'>Profile</button>
+  <button route='/404'>404</button>
+  <hr>
+  <h3>History length :</h3>
+  <div id='historyRoutes'></div>
+
+</body>
+
+<script>
+  window.onload = () => {
+
+    const view = document.getElementById('view')
+    const historyRoutes = document.getElementById('historyRoutes')
+
+    const activeRoutes = Array.from(document.querySelectorAll('[route]')) //псевдомассив
+    console.log('activeRoutes', activeRoutes)
+
+    const Router = function (name, routes) {    // ф конструктор
+      return {
+        name,
+        routes,
+      }
+    }
+
+    const router = new Router('router', [
+      {
+        path: '/',
+        name: '/'
+      },
+      {
+        path: '/main',
+        name: 'Main'
+      },
+      {
+        path: '/profile',
+        name: 'Profile'
+      },
+    ])
+
+    console.log('router: ', router)
+
+    // функция которая вызывается при клике на кнопку
+    // описывает навигацию
+    const navigate = (event) => {
+      console.log('event: ', event.target.attributes)
+
+      const route = event.target.attributes[0].value
+      console.log('route: ', route)
+
+      const routeInfo = router.routes.filter((r) => r.path === route)[0]
+      // find - для поиска объекта найдет первый элемент удовл условию
+      // indexOf - простые объекты
+      console.log(`routeInfo: ${JSON.stringify(routeInfo)}`)
+      console.log('window.history: ', window.history)
+
+      if (!routeInfo) {
+        window.history.pushState({}, '', '404')
+        view.innerHTML = `No route exists with this path`
+      } else {
+        window.history.pushState(routeInfo.name, '', routeInfo.path)
+        console.log('window.history2: ', window.history)
+        view.innerHTML = `You have clicked the ${routeInfo.name} route`
+        historyRoutes.innerHTML = JSON.stringify(window.history)
+      }
+    };
+    //onpopstate
+    activeRoutes.forEach((route) => route.addEventListener('click', navigate, false))
+  }
+
+</script>
+
+
+
+</html>
