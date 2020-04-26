@@ -1,0 +1,20 @@
+{
+  "name": "formik",
+  "version": "1.0.0",
+  "description": "",
+  "main": "array.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "formik": "^2.1.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.0",
+    "react-scripts": "3.4.0"
+  }
+}
